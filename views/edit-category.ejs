@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Category</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Edit Category</h2>
+
+        <a class="go-back-btn" href="/categories">
+            < Go Back</a>
+
+                <form method="post" action="/categories/edit/<%= category.CategoryId %>">
+                    <input name="CategoryName" value="<%= category.CategoryName %>" required />
+                    <button type="submit">Update</button>
+                </form>
+    </div>
+
+</body>
+
+</html>

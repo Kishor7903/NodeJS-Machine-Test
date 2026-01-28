@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Category Master</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="heading-block">
+        <h2>Category Master</h2>
+      
+        <a href="/categories/add" class="button">+ Add Category</a>
+    </div>
+
+  <a class="go-to-btn" href="/products">Go to Product Master ></a>
+
+  <ol>
+    <% categories.forEach(c => { %>
+      <li>
+        <%= c.CategoryName %>
+        <div>
+            <a href="/categories/edit/<%= c.CategoryId %>" class="edit-btn">Edit</a>
+            <a href="/categories/delete/<%= c.CategoryId %>"
+               class="action-delete"
+               onclick="return confirm('Delete this category?')">
+               Delete
+            </a>
+        </div>
+      </li>
+      
+    <% }) %>
+  </ol>
+</div>
+
+</body>
+</html>

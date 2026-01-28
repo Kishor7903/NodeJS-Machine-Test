@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Product</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Add Product</h2>
+
+        <a class="go-back-btn" href="/products">
+            < Go Back</a>
+
+                <form method="post" action="/products/add">
+                    <input name="ProductName" placeholder="Product Name" required />
+
+                    <select name="CategoryId" required>
+                        <% categories.forEach(c=> { %>
+                            <option value="<%= c.CategoryId %>">
+                                <%= c.CategoryName %>
+                            </option>
+                            <% }) %>
+                    </select>
+
+                    <button type="submit">Save</button>
+                </form>
+    </div>
+
+</body>
+
+</html>

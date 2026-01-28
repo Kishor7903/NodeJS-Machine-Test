@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Edit Product</h2>
+
+        <a class="go-back-btn" href="/products">
+            < Go Back</a>
+
+            <form method="post" action="/products/edit/<%= product.ProductId %>">
+                <input name="ProductName" value="<%= product.ProductName %>" required />
+
+                <select name="CategoryId" required>
+                    <% categories.forEach(c=> { %>
+                        <option value="<%= c.CategoryId %>" <%=c.CategoryId===product.CategoryId ? 'selected' : ''
+                            %>>
+                            <%= c.CategoryName %>
+                        </option>
+                        <% }) %>
+                </select>
+
+                <button type="submit">Update</button>
+            </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Master</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="heading-block">
+            <h2>Product Master</h2>
+
+            <a href="/products/add" class="button">+ Add Product</a>
+        </div>
+
+        <a class="go-to-btn" href="/categories">Go to Category Master ></a>
+
+        <table>
+            <tr>
+                <th>ProductId</th>
+                <th>Product Name</th>
+                <th>CategoryId</th>
+                <th>Category Name</th>
+                <th>Action</th>
+            </tr>
+
+            <% products.forEach(p=> { %>
+                <tr>
+                    <td>
+                        <%= p.ProductId %>
+                    </td>
+                    <td>
+                        <%= p.ProductName %>
+                    </td>
+                    <td>
+                        <%= p.CategoryId %>
+                    </td>
+                    <td>
+                        <%= p.CategoryName %>
+                    </td>
+                    <td>
+                        <a href="/products/edit/<%= p.ProductId %>" class="edit-btn">Edit</a>
+                        <a href="/products/delete/<%= p.ProductId %>" class="action-delete"
+                            onclick="return confirm('Delete this product?')">
+                            Delete
+                        </a>
+                    </td>
+
+                </tr>
+                <% }) %>
+        </table>
+
+        <div class="pagination">
+            <% for(let i=1;i<=totalPages;i++){ %>
+                <a href="/products?page=<%= i %>" class="<%= i === currentPage ? 'active' : '' %>">
+                    <%= i %>
+                </a>
+                <% } %>
+        </div>
+    </div>
+
+</body>
+
+</html>
